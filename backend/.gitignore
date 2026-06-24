@@ -1,0 +1,7 @@
+# .gitignore
+.env
+code_sentinel/
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
