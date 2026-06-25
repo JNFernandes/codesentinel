@@ -1,0 +1,18 @@
+{
+  "admin_utils.py": {
+    "filename": "admin_utils.py",
+    "language": "python",
+    "decision": "block",
+    "severity_score": 10,
+    "summary": "This code has been reviewed at least twice before and every critical vulnerability identified in prior reviews remains completely unaddressed. Five separate categories of critical or high-severity issues persist across security, performance, code quality, test coverage, and architecture dimensions. ",
+    "critical_issues": [
+      "**Hardcoded credentials (lines 5–6).** `DB_PASSWORD = \"admin123\"` and `API_KEY = \"sk-prod-supersecret\"` are committed to source control. Anyone with r",
+      "**SQL injection in `get_users` (line 9).** `search_term` is concatenated directly into the SQL string. An input like `' OR '1'='1'--` exfiltrates the ",
+      "**OS command injection in `run_command` (line 16).** `subprocess.run(cmd, shell=True, ...)` with unsanitized caller-controlled input allows arbitrary ",
+      "**Arbitrary code execution via `pickle.load` in `load_data` (line 21).** `pickle.load` executes embedded Python bytecode. A crafted pickle file yields",
+      "**Path traversal in `load_data` (line 20).** `open(filepath, \"rb\")` with no path validation allows `../../../../etc/passwd`-style reads. Resolve and r"
+    ],
+    "reviewed_at": "2026-06-24T22:06:32",
+    "revision_count": 1
+  }
+}
